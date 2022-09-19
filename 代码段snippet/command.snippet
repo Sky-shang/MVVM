@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>command</Title>
+			<Shortcut>command</Shortcut>
+			<Description>属性和支持字段的代码片段</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>title</ID>
+					<ToolTip>方法描述</ToolTip>
+					<Default>Title</Default>
+				</Literal>
+				<Literal>
+					<ID>property</ID>
+					<ToolTip>方法名</ToolTip>
+					<Default>MyProperty</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+        <![CDATA[
+  /// <summary>
+  /// $title$
+  /// </summary>    
+  public static ICommand $property$Command => new RelayCommand(() =>
+  {
+
+  });
+	$end$]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
