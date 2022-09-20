@@ -14,8 +14,7 @@ namespace DMSkin.Core.Common
             var dispatcher = Dispatcher.CurrentDispatcher;
             executor = action =>
             {
-                if (dispatcher.CheckAccess())
-                    action();
+                if (dispatcher.CheckAccess()) action();
                 else dispatcher.BeginInvoke(action);
             };
         }
