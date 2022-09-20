@@ -1,16 +1,11 @@
-﻿using MVVMToolkit_Sample.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace MVVMToolkit_Sample.Model
 {
     /// <summary>
     /// 用户类
     /// </summary>
-    public class User : ViewModelBase
+    public class User : ObservableObject
     {
         private string _name;
         /// <summary>
@@ -18,12 +13,8 @@ namespace MVVMToolkit_Sample.Model
         /// </summary>
         public string Name
         {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
 
         private string _password;
@@ -32,12 +23,8 @@ namespace MVVMToolkit_Sample.Model
         /// </summary>
         public string Password
         {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
-            }
+            get => _password;
+            set => SetProperty(ref _password, value);
         }
 
         private bool _vip;
@@ -46,12 +33,8 @@ namespace MVVMToolkit_Sample.Model
         /// </summary>
         public bool Vip
         {
-            get { return _vip; }
-            set
-            {
-                _vip = value;
-                OnPropertyChanged(nameof(Vip));
-            }
+            get => _vip;
+            set => SetProperty(ref _vip, value);
         }
     }
 }

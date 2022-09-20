@@ -1,10 +1,12 @@
-﻿using MVVMToolkit_Sample.Common;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MVVMToolkit_Sample.Common;
 using MVVMToolkit_Sample.Model;
 using System.Windows.Input;
 
 namespace MVVMToolkit_Sample.ViewModel
 {
-    public class LoginViewModel:ViewModelBase
+    public class LoginViewModel : ObservableObject
     {
         #region 初始化
         public LoginViewModel()
@@ -16,23 +18,14 @@ namespace MVVMToolkit_Sample.ViewModel
         #endregion
 
         #region 属性
-        private User user;
+        private User _user;
         /// <summary>
         /// 当前用户
         /// </summary>
         public User User
         {
-            get {
-                if (user==null)
-                {
-                    user = new User();
-                }
-                return user; }
-            set
-            {
-                user = value;
-                OnPropertyChanged(nameof(User));
-            }
+            get => _user;
+            set => SetProperty(ref _user, value);
         }
         #endregion
 
@@ -40,7 +33,7 @@ namespace MVVMToolkit_Sample.ViewModel
         /// <summary>
         /// 登录操作
         /// </summary>    
-        public ICommand LoginCommand => new DelegateCommand(obj =>
+        public ICommand LoginCommand => new RelayCommand(() =>
         {
             if (User.Name == "admin" && User.Password == "admin")
             {
