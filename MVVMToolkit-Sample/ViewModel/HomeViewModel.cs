@@ -1,12 +1,12 @@
-﻿using MVVM.Common;
-using MVVM.Model;
-using MVVM.View;
+﻿using MVVMToolkit_Sample.Common;
+using MVVMToolkit_Sample.Model;
+using MVVMToolkit_Sample.View;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MVVM.ViewModel
+namespace MVVMToolkit_Sample.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {

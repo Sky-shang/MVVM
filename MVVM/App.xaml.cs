@@ -1,4 +1,4 @@
-﻿using DMSkin.Core.Common;
+﻿using MVVM.Common;
 using System.Windows;
 
 namespace MVVM

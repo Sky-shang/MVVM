@@ -1,8 +1,8 @@
-﻿using MVVM.Common;
-using MVVM.Model;
+﻿using MVVMToolkit_Sample.Common;
+using MVVMToolkit_Sample.Model;
 using System.Windows.Input;
 
-namespace MVVM.ViewModel
+namespace MVVMToolkit_Sample.ViewModel
 {
     public class LoginViewModel:ViewModelBase
     {

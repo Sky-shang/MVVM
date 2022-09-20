@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMToolkit_Sample.Common;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,16 @@ namespace MVVMToolkit_Sample
     /// </summary>
     public partial class App : Application
     {
+
+        /// <summary>
+        /// 重启启动函数
+        /// </summary>
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            //初始化UI调度器
+            Execute.InitializeWithDispatcher();
+
+            base.OnStartup(e);
+        }
     }
 }

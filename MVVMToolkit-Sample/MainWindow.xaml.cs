@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVVMToolkit_Sample.Common;
+using MVVMToolkit_Sample.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,14 @@ namespace MVVMToolkit_Sample
         public MainWindow()
         {
             InitializeComponent();
+            //注册跳转
+            WindowHelper.ShowPageHome = () =>
+            {
+                frame.Navigate(new PageHome());
+            };
+
+            //跳转至登录页
+            frame.Navigate(new PageLogin());
         }
     }
 }

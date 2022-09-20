@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MVVM.Common
+namespace MVVMToolkit_Sample.Common
 {
     public class DelegateCommand : ICommand
     {

@@ -1,7 +1,7 @@
-﻿using MVVM.Common;
-using MVVM.Model;
+﻿using MVVMToolkit_Sample.Common;
+using MVVMToolkit_Sample.Model;
 
-namespace MVVM.ViewModel
+namespace MVVMToolkit_Sample.ViewModel
 {
     /// <summary>
     /// 编辑用户

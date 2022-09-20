@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Threading;
 
-namespace MVVM.Common
+namespace MVVMToolkit_Sample.Common
 {
     public static class Execute
     {
