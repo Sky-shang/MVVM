@@ -23,7 +23,6 @@ namespace MVVMToolkit_Sample.ViewModel
         /// </summary>
         public User User
         {
-            //get => _user;
             get
             {
                 if (_user == null)
