@@ -1,4 +1,6 @@
-﻿using MVVMToolkit_Sample.Common;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MVVMToolkit_Sample.Common;
 using MVVMToolkit_Sample.Model;
 using MVVMToolkit_Sample.View;
 using System.Collections.ObjectModel;
@@ -8,7 +10,7 @@ using System.Windows.Input;
 
 namespace MVVMToolkit_Sample.ViewModel
 {
-    public class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ObservableObject
     {
         #region 初始化
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
@@ -31,7 +33,7 @@ namespace MVVMToolkit_Sample.ViewModel
 
                     //并不是所有对数据操作都需要UI调度器,只有UI创建了视图对象的时候才需要
                     //这里的DataGrid 根据Users创建了视图列表，所以资源属于UI层。
-                    Execute.OnUIThread(()=> 
+                    Execute.OnUIThread(() =>
                     {
                         Users.Add(new User() { Name = $"用户{i}", Vip = true });
                     });
@@ -41,21 +43,17 @@ namespace MVVMToolkit_Sample.ViewModel
         #endregion
 
         #region 属性
-        private double progress;
+        private double _progress;
         /// <summary>
         /// 进度
         /// </summary>
         public double Progress
         {
-            get { return progress; }
-            set
-            {
-                progress = value;
-                OnPropertyChanged(nameof(Progress));
-            }
+            get => _progress;
+            set => SetProperty(ref _progress, value);
         }
 
-        private ObservableCollection<User> users;
+        private ObservableCollection<User> _users;
         /// <summary>
         /// 用户列表
         /// </summary>
@@ -63,17 +61,14 @@ namespace MVVMToolkit_Sample.ViewModel
         {
             get
             {
-                if (users == null)
+                if (_users == null)
                 {
-                    users = new ObservableCollection<User>();
+                    _users = new ObservableCollection<User>();
                 }
-                return users;
+                return _users;
             }
-            set
-            {
-                Users = value;
-                OnPropertyChanged(nameof(Users));
-            }
+
+            set => SetProperty(ref _users, value);
         }
 
         #endregion
@@ -83,7 +78,7 @@ namespace MVVMToolkit_Sample.ViewModel
         /// <summary>
         /// 停止
         /// </summary>    
-        public ICommand StopCommand => new DelegateCommand(obj =>
+        public ICommand StopCommand => new RelayCommand(() =>
         {
             cancellationTokenSource.Cancel();
         });
@@ -92,13 +87,10 @@ namespace MVVMToolkit_Sample.ViewModel
         /// <summary>
         /// 编辑用户
         /// </summary>    
-        public ICommand EditCommand => new DelegateCommand(obj =>
+        public ICommand EditCommand => new RelayCommand<User>(obj =>
         {
-            if (obj is User user)
-            {
-                EditWindow editWindow = new EditWindow(user);
-                editWindow.ShowDialog();
-            }
+            EditWindow editWindow = new EditWindow(obj);
+            editWindow.ShowDialog();
         });
 
         #endregion

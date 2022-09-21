@@ -24,7 +24,14 @@ namespace MVVMToolkit_Sample.ViewModel
         /// </summary>
         public User User
         {
-            get => _user;
+            get
+            {
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                return _user;
+            }
             set => SetProperty(ref _user, value);
         }
         #endregion

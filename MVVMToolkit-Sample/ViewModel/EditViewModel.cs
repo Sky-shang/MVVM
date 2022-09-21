@@ -1,4 +1,5 @@
-﻿using MVVMToolkit_Sample.Common;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using MVVMToolkit_Sample.Common;
 using MVVMToolkit_Sample.Model;
 
 namespace MVVMToolkit_Sample.ViewModel
@@ -6,7 +7,7 @@ namespace MVVMToolkit_Sample.ViewModel
     /// <summary>
     /// 编辑用户
     /// </summary>
-    public class EditViewModel:ViewModelBase
+    public class EditViewModel : ObservableObject
     {
         #region 初始化
         public EditViewModel(User user)
@@ -16,18 +17,22 @@ namespace MVVMToolkit_Sample.ViewModel
         #endregion
 
         #region 属性
-        private User user;
+        private User _user;
         /// <summary>
         /// 编辑用户
         /// </summary>
         public User User
         {
-            get { return user; }
-            set
+            //get => _user;
+            get
             {
-                user = value;
-                OnPropertyChanged(nameof(User));
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                return _user;
             }
+            set => SetProperty(ref _user, value);
         }
         #endregion
     }
