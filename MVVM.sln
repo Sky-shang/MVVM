@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM", "MVVM\MVVM.csproj", "{940268CF-F682-4A24-8D13-C0E564D75337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMToolkit-Sample", "MVVMToolkit-Sample\MVVMToolkit-Sample.csproj", "{2795B42D-C8FE-4511-856E-F9834FF9D9C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVMToolkit-Sample", "MVVMToolkit-Sample\MVVMToolkit-Sample.csproj", "{2795B42D-C8FE-4511-856E-F9834FF9D9C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
